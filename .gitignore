@@ -1,0 +1,5 @@
+bazel-bin
+bazel-out
+bazel-bazel-datadog-bes
+bazel-testlogs
+

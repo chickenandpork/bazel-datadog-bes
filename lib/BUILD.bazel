@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+#load("@com_github_chickenandpork_enumerx//bazel:defs.bzl", "enumerx")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["ddclient.go"],
+    importpath = "github.com/chickenandpork/bazel-datadog-bes/lib",
+    visibility = ["//visibility:public"],
+)

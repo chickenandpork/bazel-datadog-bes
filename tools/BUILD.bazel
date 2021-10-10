@@ -1,0 +1,27 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@com_github_atlassian_bazel_tools//goimports:def.bzl", "goimports")
+
+# FWIW, Gazelle being primarily a Go BUILD file-creation tool, also acts as a
+# linter/formatter/beautifier for BUILD files: side-effect being to reduce whitespace-based thrash
+# on change.
+
+# gazelle:prefix github.com/chickenandpork/bazel-datadog-bes
+gazelle(name = "gazelle")
+
+##### Administrivia
+
+# GOIMPORTS
+# Simple method of formatting (opinionated, fairly common standard) the few go files in the
+# platform repo.  Equivalent of a `goimports -w ./...`
+
+goimports(
+    name = "goimports",
+    display_diffs = True,
+    prefix = "//lib",
+    write = True,
+)
+
+alias(
+    name = "enumerx",
+    actual = "@com_github_chickenandpork_enumerx//:enumerx",
+)
